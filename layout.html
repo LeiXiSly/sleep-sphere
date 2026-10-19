@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sleep Sphere · Layout Study</title>
+<link rel="stylesheet" href="assets/layout.css" />
+</head>
+<body>
+<div class="viewport">
+<div class="stage" id="stage">
+
+  <!-- ============ 01 Cover ============ -->
+  <section class="page light" id="p1">
+    <header class="pg-head">
+      <div class="kicker"><span data-i18n="brand.k1">SLEEP SPHERE</span><span class="slash">/</span><span data-i18n="brand.k2">A MONTH IN ONE STRUCTURE</span></div>
+      <div class="pg-num">01 <span class="of">/ 06</span></div>
+    </header>
+
+    <div class="hero-art">
+      <canvas id="coverSphere"></canvas>
+      <div class="hero-cap" data-i18n="p1.cap">FIG. 01 — One month, as a shape</div>
+    </div>
+
+    <h1 class="hero-word" data-i18n-html="p1.word">Grow a month<br />into a structure</h1>
+
+    <div class="hero-side">
+      <a class="pill solid" href="index.html" data-i18n="p1.t1">RECORD</a>
+      <a class="pill solid" href="index.html" data-i18n="p1.t2">OBSERVE</a>
+      <a class="pill solid" href="index.html" data-i18n="p1.t3">BUILD</a>
+      <p class="hero-desc" data-i18n-html="p1.desc">
+        Give each night a score from 1 to 10, tag what happened that day.
+        By month's end it grows into a shape on its own — <b>how you sleep,
+        and what keeps dragging you down, becomes visible at a glance.</b>
+      </p>
+    </div>
+
+    <footer class="pg-foot">
+      <span data-i18n="p1.fl">A SELF-OBSERVATION TOOL FOR SLEEP</span>
+      <span class="foot-note" data-i18n="p1.fr">Data stays in your browser · No account · v1.0</span>
+    </footer>
+  </section>
+
+  <!-- ============ 02 Background ============ -->
+  <section class="page light" id="p2">
+    <header class="pg-head">
+      <div class="pg-num right">02 <span class="of">/ 06</span></div>
+    </header>
+
+    <div class="grid3">
+      <div class="col">
+        <span class="pill solid">THE PROBLEM</span>
+        <h2 class="title" data-i18n-html="p2.title">Why draw sleep<br />at all</h2>
+        <p class="body" data-i18n-html="p2.a">
+          Sleep is the hardest thing to observe in yourself. You remember when
+          you lay down last night, but not what has been stealing your deep
+          sleep across thirty days.
+        </p>
+        <p class="body" data-i18n-html="p2.b">
+          A table can record it, but it cannot let you see it. Once a month is
+          arranged into a sphere, <b>which day collapsed, which line pulls which —
+          the shape tells the truth for you.</b>
+        </p>
+        <p class="body" data-i18n-html="p2.c">
+          Thirty days of numbers do not turn into insight on their own. They need
+          to be arranged into <b>a form you can look at, rotate, and walk into</b> —
+          then the question becomes concrete.
+        </p>
+        <p class="body dim" data-i18n="p2.d">
+          So this tool does one thing only: turn abstract, subjective feeling
+          into a structure the eye can read.
+        </p>
+      </div>
+
+      <div class="col">
+        <div class="chart-title"><span data-i18n="p2.c1">Most reported factors</span> <span class="tag-i" data-i18n="tag.ill">illustrative</span></div>
+        <div class="hbars">
+          <div class="hbar"><span class="hl" data-i18n="f.work">Working late</span><span class="hb"><i style="width:78%"></i></span><span class="hv">78</span></div>
+          <div class="hbar"><span class="hl" data-i18n="f.coffee">Caffeine</span><span class="hb"><i style="width:71%"></i></span><span class="hv">71</span></div>
+          <div class="hbar"><span class="hl" data-i18n="f.screen">Screen / scrolling</span><span class="hb"><i style="width:64%"></i></span><span class="hv">64</span></div>
+          <div class="hbar"><span class="hl" data-i18n="f.stress">Emotional stress</span><span class="hb"><i style="width:57%"></i></span><span class="hv">57</span></div>
+          <div class="hbar"><span class="hl" data-i18n="f.sport">Exercise</span><span class="hb"><i class="grey" style="width:42%"></i></span><span class="hv">42</span></div>
+          <div class="hbar"><span class="hl" data-i18n="f.shower">Hot shower</span><span class="hb"><i class="grey" style="width:28%"></i></span><span class="hv">28</span></div>
+        </div>
+        <div class="chart-note" data-i18n="p2.n1">Bar length = how often the factor was logged (0–100)</div>
+
+        <div class="chart-title mt"><span data-i18n="p2.c2">Who is logging</span></div>
+        <div class="vbars">
+          <div class="vbar"><span class="vv">24%</span><i style="height:38%"></i><span class="vk">&lt;25</span></div>
+          <div class="vbar"><span class="vv">31%</span><i style="height:52%"></i><span class="vk">25–29</span></div>
+          <div class="vbar"><span class="vv">21%</span><i style="height:34%"></i><span class="vk">30–34</span></div>
+          <div class="vbar"><span class="vv">15%</span><i style="height:24%"></i><span class="vk">35–39</span></div>
+          <div class="vbar"><span class="vv">9%</span><i class="grey" style="height:15%"></i><span class="vk">40+</span></div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="chart-title"><span data-i18n="p2.c3">Three windows in a day</span></div>
+        <div class="stack">
+          <div class="stack-row"><span class="sl" data-i18n="p2.day">Daytime</span><span class="sb"><i class="r" style="width:46%"></i><i class="g" style="width:32%"></i><i class="l" style="width:22%"></i></span></div>
+          <div class="stack-row"><span class="sl" data-i18n="p2.eve">Evening</span><span class="sb"><i class="r" style="width:34%"></i><i class="g" style="width:28%"></i><i class="l" style="width:38%"></i></span></div>
+          <div class="stack-row"><span class="sl" data-i18n="p2.night">Before bed</span><span class="sb"><i class="r" style="width:62%"></i><i class="g" style="width:18%"></i><i class="l" style="width:20%"></i></span></div>
+        </div>
+        <div class="legend-inline">
+          <span><i class="sq r"></i><span data-i18n="p2.lg1">Draining</span></span>
+          <span><i class="sq g"></i><span data-i18n="p2.lg2">Restorative</span></span>
+          <span><i class="sq l"></i><span data-i18n="p2.lg3">Neutral</span></span>
+        </div>
+
+        <p class="body sm mt" data-i18n-html="p2.e">
+          The same person, the same tag, at a different hour — and it may act
+          in the opposite direction on those hours of the night.
+          <b>That is why it has to be logged day by day.</b>
+        </p>
+
+        <div class="quote" data-i18n-html="p2.quote">
+          The body tolerates “less” better<br />than it tolerates “unpredictable”.
+        </div>
+      </div>
+    </div>
+
+    <footer class="pg-foot">
+      <span>SLEEP SPHERE — PROJECT BACKGROUND</span>
+      <span class="foot-note" data-i18n="p2.fr">Figures are illustrative, not empirical statistics</span>
+    </footer>
+  </section>
+
+  <!-- ============ 03 Method ============ -->
+  <section class="page light warm" id="p3">
+    <header class="pg-head">
+      <div class="pg-num right">03 <span class="of">/ 06</span></div>
+    </header>
+
+    <div class="grid-73">
+      <div class="col">
+        <span class="pill solid">THE METHOD</span>
+        <h2 class="title" data-i18n-html="p3.title">Twenty seconds<br />a day</h2>
+
+        <div class="cal-demo">
+          <div class="cal-week" id="calWeek"></div>
+          <div class="cal-cells" id="calDemo"></div>
+        </div>
+
+        <div class="cal-caption">
+          <span><i class="dotk hi"></i><span data-i18n="p3.hi">High</span></span>
+          <span><i class="dotk mid"></i><span data-i18n="p3.mid">Okay</span></span>
+          <span><i class="dotk lo"></i><span data-i18n="p3.lo">Low</span></span>
+          <span><i class="dotk empty"></i><span data-i18n="p3.none">Not logged</span></span>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="steps">
+          <div class="step"><span class="sn">01</span><div><b data-i18n="p3.s1t">Pick a day</b><p data-i18n="p3.s1">Tap any cell in the calendar. Month and week views both.</p></div></div>
+          <div class="step"><span class="sn">02</span><div><b data-i18n="p3.s2t">Give a score</b><p data-i18n="p3.s2">Slider, five presets, or just type a number. 1 to 10, no decimals.</p></div></div>
+          <div class="step"><span class="sn">03</span><div><b data-i18n="p3.s3t">Tag what happened</b><p data-i18n="p3.s3">Coffee, a run, a late proposal — pick from the tags, or add your own.</p></div></div>
+          <div class="step"><span class="sn">04</span><div><b data-i18n="p3.s4t">Build the structure</b><p data-i18n="p3.s4">One click, and the sphere grows point by point. More days, more complete.</p></div></div>
+        </div>
+
+        <div class="scale-block">
+          <div class="chart-title" data-i18n="p3.scale">Quality scale</div>
+          <div class="scale"></div>
+          <div class="scale-lb">
+            <span data-i18n="p3.sc1">1 · Terrible</span>
+            <span data-i18n="p3.sc2">5 · Okay</span>
+            <span data-i18n="p3.sc3">10 · Great</span>
+          </div>
+        </div>
+
+        <div class="tagblock">
+          <div class="chart-title"><span data-i18n="p3.tags">Tags available</span> <span class="tag-i" data-i18n="p3.tagsn">25 · in 5 groups</span></div>
+          <div class="taglist" id="tagList"></div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="pg-foot">
+      <span>SLEEP SPHERE — METHOD</span>
+      <span class="foot-note" data-i18n="p3.fr">All data kept in localStorage, never uploaded</span>
+    </footer>
+  </section>
+
+  <!-- ============ 04 Structure ============ -->
+  <section class="page dark" id="p4">
+    <header class="pg-head">
+      <div class="kicker inv"><span data-i18n="p4.k1">STRUCTURE</span><span class="slash">/</span><span data-i18n="p4.k2">Build</span></div>
+      <div class="pg-num inv">04 <span class="of">/ 06</span></div>
+    </header>
+
+    <div class="grid-64">
+      <div class="viz-box">
+        <canvas id="mainSphere"></canvas>
+        <div class="viz-meta">
+          <span><b>24</b> <span data-i18n="p4.nodes">Nodes</span></span>
+          <span><b>61</b> <span data-i18n="p4.edges">Edges</span></span>
+          <span><b>38</b> <span data-i18n="p4.faces">Faces</span></span>
+          <span class="drag" data-i18n="p4.drag">Drag to rotate · scroll to zoom</span>
+        </div>
+      </div>
+
+      <div class="col">
+        <span class="pill hollow">THREE LAYERS</span>
+        <h2 class="title inv" data-i18n="p4.title">Points, lines, planes</h2>
+
+        <div class="legend-list">
+          <div class="lg-item">
+            <span class="lg-mark dot"></span>
+            <div><b data-i18n="p4.l1t">Point · one day</b><p data-i18n="p4.l1">The higher the score, the further from the core and the brighter. Where it collapses, you see it at once.</p></div>
+          </div>
+          <div class="lg-item">
+            <span class="lg-mark line"></span>
+            <div><b data-i18n="p4.l2t">Line · two days linked</b><p data-i18n="p4.l2">Days next to each other, or sharing the same event — both had coffee, both were grinding — that makes a line.</p></div>
+          </div>
+          <div class="lg-item">
+            <span class="lg-mark face"></span>
+            <div><b data-i18n="p4.l3t">Plane · one habit</b><p data-i18n="p4.l3">Three lines enclose an area. When the same tag keeps showing up, it grows into a plane on its own.</p></div>
+          </div>
+        </div>
+
+        <p class="body inv dim mt" data-i18n="p4.note">
+          Logged dates spiral down the sphere, from the pole at the start of the
+          month to the pole at the end. After thirty days, what you see is not
+          a table — it is a person's architecture.
+        </p>
+      </div>
+    </div>
+
+    <footer class="pg-foot inv">
+      <span>SLEEP SPHERE — STRUCTURE</span>
+      <span class="foot-note" data-i18n="p4.fr">Rendered in real time · Canvas 2D</span>
+    </footer>
+  </section>
+
+  <!-- ============ 05 Portrait ============ -->
+  <section class="page light" id="p5">
+    <header class="pg-head">
+      <div class="pg-num right">05 <span class="of">/ 06</span></div>
+    </header>
+
+    <div class="grid3 wide-left">
+      <div class="col">
+        <span class="pill solid">THE PORTRAIT</span>
+        <h2 class="title" data-i18n-html="p5.title">It tells you<br />who you are</h2>
+
+        <div class="persona-card">
+          <div class="pc-label">YOUR SLEEP TYPE</div>
+          <div class="pc-name" data-i18n="p5.name">Caffeine Overdraft</div>
+          <p class="pc-desc" data-i18n="p5.desc">
+            Coffee lifts you through the day, then quietly pulls its hands away
+            at night. That 3pm latte is still queued in your bloodstream at 1am.
+          </p>
+          <div class="pc-note" data-i18n="p5.note">24 days logged · 9 rule sets</div>
+          <div class="pc-foot" data-i18n="p5.also">Also · Midnight Grinder</div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="metrics4">
+          <div class="m"><span class="mk" data-i18n="p5.m1">Avg quality</span><span class="mv">6.4</span></div>
+          <div class="m"><span class="mk" data-i18n="p5.m2">Volatility</span><span class="mv">1.8</span></div>
+          <div class="m"><span class="mk" data-i18n="p5.m3">Days logged</span><span class="mv">24</span></div>
+          <div class="m"><span class="mk" data-i18n="p5.m4">Avg hours</span><span class="mv">6.7<span class="mu">h</span></span></div>
+        </div>
+
+        <div class="chart-title mt"><span data-i18n="p5.c1">What moves your sleep</span> <span class="tag-i" data-i18n="p5.u">unit: pts</span></div>
+        <div class="fbars">
+          <div class="fbar"><span class="fl" data-i18n="f.work">Working late</span><span class="fb"><span class="axis"></span><i class="neg" style="width:38%"></i></span><span class="fv neg">−1.8</span></div>
+          <div class="fbar"><span class="fl" data-i18n="f.coffee">Coffee</span><span class="fb"><span class="axis"></span><i class="neg" style="width:30%"></i></span><span class="fv neg">−1.4</span></div>
+          <div class="fbar"><span class="fl" data-i18n="f.phone">Doom-scrolling</span><span class="fb"><span class="axis"></span><i class="neg" style="width:23%"></i></span><span class="fv neg">−1.1</span></div>
+          <div class="fbar"><span class="fl" data-i18n="f.sport">Exercise</span><span class="fb"><span class="axis"></span><i class="pos" style="width:34%"></i></span><span class="fv pos">+1.6</span></div>
+          <div class="fbar"><span class="fl" data-i18n="f.shower">Hot shower</span><span class="fb"><span class="axis"></span><i class="pos" style="width:19%"></i></span><span class="fv pos">+0.9</span></div>
+        </div>
+        <div class="chart-note" data-i18n="p5.n1">Left: drags down　Right: lifts up　—　compares days with and without the tag</div>
+      </div>
+
+      <div class="col">
+        <div class="chart-title" data-i18n="p5.c2">To try this month</div>
+        <ol class="advice">
+          <li data-i18n-html="p5.a1">Close the caffeine window at <b>noon</b>. Half-life is about 5 hours — the 3pm cup is still queued in your blood at 1am.</li>
+          <li data-i18n-html="p5.a2">Set a <b>hard cutoff</b> for late work (23:30, say). Work expands to fill the time; only a boundary stops it.</li>
+          <li data-i18n-html="p5.a3">Fix exercise at the <b>same time of day</b>, so it becomes a rhythm anchor rather than a random event.</li>
+        </ol>
+
+        <div class="quote sm" data-i18n-html="p5.quote">
+          Steady beats the occasional<br />perfect night.
+        </div>
+
+        <div class="bestworst">
+          <div><span>BEST DAY</span><b data-i18n="p5.best">10/24 · 9 pts</b></div>
+          <div><span>WORST DAY</span><b data-i18n="p5.worst">10/20 · 4 pts</b></div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="pg-foot">
+      <span>SLEEP SPHERE — PORTRAIT</span>
+      <span class="foot-note" data-i18n="p5.fr">Portrait from 9 rule sets — not a medical diagnosis</span>
+    </footer>
+  </section>
+
+  <!-- ============ 06 End ============ -->
+  <section class="page dark end" id="p6">
+    <header class="pg-head">
+      <div class="kicker inv"><span data-i18n="brand.k1">SLEEP SPHERE</span><span class="slash">/</span><span>2026</span></div>
+      <div class="pg-num inv">06 <span class="of">/ 06</span></div>
+    </header>
+
+    <div class="end-body">
+      <h2 class="end-title" data-i18n-html="p6.title">What happens at night<br />is invisible by day.</h2>
+      <p class="end-sub" data-i18n="p6.sub">So you turn it into a shape.</p>
+      <a class="pill solid big" href="index.html" data-i18n="p6.cta">Open Sleep Sphere →</a>
+    </div>
+
+    <div class="end-info">
+      <div class="ei-col">
+        <span class="ei-k">ABOUT</span>
+        <p data-i18n="p6.i1">A self-observation tool for sleep. Record, build, read — three steps, no barrier to entry.</p>
+      </div>
+      <div class="ei-col">
+        <span class="ei-k">HOW IT IS MADE</span>
+        <p data-i18n-html="p6.i2">Hand-written Canvas 2D perspective rendering, zero dependencies. Data lives in the browser, never uploaded, no sign-up.</p>
+      </div>
+      <div class="ei-col">
+        <span class="ei-k">LANGUAGE</span>
+        <p data-i18n-html="p6.i3">Chinese / English interface, one tap to switch.<br />25 tags, fully customisable.</p>
+      </div>
+    </div>
+
+    <footer class="pg-foot inv">
+      <span>LOCAL-FIRST · NO ACCOUNT · NO UPLOAD</span>
+      <span class="foot-note">SSR STUDIO / 2026</span>
+    </footer>
+  </section>
+
+</div>
+</div>
+
+<button class="lang-fab" id="langFab">中文</button>
+
+<script src="assets/sphere3d.js"></script>
+<script src="assets/layout.js"></script>
+</body>
+</html>

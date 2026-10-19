@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>睡眠球体 · Sleep Sphere</title>
+<link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+
+<div class="app">
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark"></span>
+      <div class="brand-text">
+        <h1 data-i18n="brand.title">睡眠球体</h1>
+        <p data-i18n="brand.sub">把一个月，长成一座建筑</p>
+      </div>
+    </div>
+
+    <div class="month-nav">
+      <button class="icon-btn" id="prevBtn" data-i18n-title="nav.prev" title="上一月 / 上一周">‹</button>
+      <span id="periodLabel">2026-10</span>
+      <button class="icon-btn" id="nextBtn" data-i18n-title="nav.next" title="下一月 / 下一周">›</button>
+      <button class="ghost-btn" id="todayBtn" data-i18n="nav.today">今天</button>
+    </div>
+
+    <div class="view-switch" id="viewSwitch">
+      <button data-view="week" data-i18n="view.week">周</button>
+      <button data-view="month" class="on" data-i18n="view.month">月</button>
+    </div>
+
+    <div class="top-actions">
+      <button class="ghost-btn" id="langBtn" title="Switch language / 切换语言">EN</button>
+      <button class="ghost-btn" id="demoBtn" data-i18n="act.demo">示例数据</button>
+      <button class="ghost-btn" id="exportBtn" data-i18n="act.export">导出</button>
+      <button class="ghost-btn danger" id="clearBtn" data-i18n="act.clear">清空</button>
+      <button class="primary-btn" id="buildBtn" data-i18n="act.build">生成结构</button>
+    </div>
+  </header>
+
+  <main class="layout">
+
+    <!-- 左：日历 -->
+    <section class="panel cal-panel">
+      <div class="panel-head">
+        <h2 data-i18n="cal.title">睡眠日历</h2>
+        <span class="hint" id="fillHint">已记录 0 天</span>
+      </div>
+
+      <div class="weekday-row" id="weekdayRow"></div>
+      <div class="month-grid" id="monthGrid"></div>
+      <div class="week-view hidden" id="weekView"></div>
+
+      <div class="legend">
+        <span><i style="background:#4C6FFF"></i><em data-i18n="q.verybad">很差</em></span>
+        <span><i style="background:#3FA9C9"></i><em data-i18n="q.okay">一般</em></span>
+        <span><i style="background:#4FD1A5"></i><em data-i18n="q.good">不错</em></span>
+        <span><i style="background:#FFD98A"></i><em data-i18n="q.great">很好</em></span>
+        <span class="legend-note" data-i18n="cal.hint">点一下日期即可填写</span>
+      </div>
+    </section>
+
+    <!-- 右：3D + 洞察 -->
+    <section class="right-col">
+
+      <div class="panel viz-panel">
+        <div class="panel-head">
+          <h2 data-i18n="viz.title">睡眠结构</h2>
+          <div class="viz-tools">
+            <button class="chip-btn on" id="spinBtn" data-i18n="viz.spin">自转</button>
+            <button class="chip-btn" id="shotBtn" data-i18n="viz.save">存图</button>
+          </div>
+        </div>
+        <div class="canvas-wrap">
+          <canvas id="sphere"></canvas>
+          <div class="tooltip" id="tooltip"></div>
+          <div class="viz-empty" id="vizEmpty" data-i18n-html="viz.empty">填写几天睡眠后<br />点击「生成结构」</div>
+          <div class="viz-stats" id="vizStats"></div>
+        </div>
+      </div>
+
+      <div class="panel insight-panel">
+        <div class="panel-head">
+          <h2 data-i18n="insight.title">睡眠画像</h2>
+          <span class="hint" id="insightHint">基于已记录数据</span>
+        </div>
+        <div id="insightBody" class="insight-body">
+          <div class="empty-state">还没有数据。先记录几天，或者点「示例数据」看看效果。</div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+</div>
+
+<!-- 单日编辑 -->
+<div class="modal-mask" id="dayModal">
+  <div class="modal">
+    <div class="modal-head">
+      <div>
+        <h3 id="modalDate">10月16日</h3>
+        <span class="sub" id="modalWeekday">周五</span>
+      </div>
+      <button class="icon-btn" id="modalClose">✕</button>
+    </div>
+
+    <div class="modal-body">
+
+      <div class="field">
+        <label><span data-i18n="edit.quality">睡眠质量</span> <span class="val" id="qVal">7</span></label>
+        <div class="q-presets" id="qPresets">
+          <button data-q="1" data-i18n="q.verybad">很差</button>
+          <button data-q="4" data-i18n="q.poor">偏差</button>
+          <button data-q="6" data-i18n="q.okay">一般</button>
+          <button data-q="8" data-i18n="q.good">不错</button>
+          <button data-q="10" data-i18n="q.great">很好</button>
+        </div>
+        <input type="range" id="qRange" min="1" max="10" step="1" value="7" />
+        <input type="number" id="qNum" min="1" max="10" step="1" value="7" class="num-input" />
+        <span class="unit" data-i18n="edit.qualityUnit">/ 10，也可以直接填数字</span>
+      </div>
+
+      <div class="field two">
+        <div>
+          <label data-i18n="edit.hours">睡眠时长（小时）</label>
+          <input type="number" id="sleepHours" min="0" max="14" step="0.5" data-i18n-ph="edit.hoursPh" placeholder="如 7.5" />
+        </div>
+        <div>
+          <label data-i18n="edit.bedtime">入睡时间</label>
+          <input type="time" id="bedTime" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label data-i18n="edit.tags">这一天做了什么 / 发生了什么</label>
+        <div class="tag-grid" id="tagGrid"></div>
+        <div class="custom-tag">
+          <input type="text" id="customTag" data-i18n-ph="edit.customPh" placeholder="自定义关键词，回车添加" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label data-i18n="edit.note">备注（可选）</label>
+        <textarea id="note" rows="2" data-i18n-ph="edit.notePh" placeholder="今天睡前看了很久手机…"></textarea>
+      </div>
+    </div>
+
+    <div class="modal-foot">
+      <button class="ghost-btn danger" id="deleteDay" data-i18n="edit.delete">清除这天</button>
+      <div class="right">
+        <button class="ghost-btn" id="cancelDay" data-i18n="edit.cancel">取消</button>
+        <button class="primary-btn" id="saveDay" data-i18n="edit.save">保存</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/sphere3d.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
